@@ -16,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/HyramTang/JWT-Practice/issues"
   },
-  "homepage": "https://github.com/HyramTang/JWT-Practice#readme"
+  "homepage": "https://github.com/HyramTang/JWT-Practice#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bootstrap": "^3.4.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "jquery": "^3.3.1",
+    "multer": "^1.4.1"
+  }
 }
