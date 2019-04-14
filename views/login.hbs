@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default navbar-inverse" style="border-radius:0" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">首页</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Sign in</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+            <form method="post" action="login">
+                <div class="form-group">
+                    <label for="exampleInputUser">账号：</label>
+                    <input type="text" class="form-control" name="UserName" id="exampleInputUser"
+                        placeholder="User Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword">密码：</label>
+                    <input type="password" class="form-control" name="Password" id="exampleInputPassword1"
+                        placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-success">登录</button>
+                {{#if error}}
+                <ul style="padding-left:15px;">
+                    <li style="color:red">{{error}}</li>
+                </ul>
+                {{else}}
+                
+                {{/if}}
+            </form>
+        </div>
+    </div>
+
+</div>
