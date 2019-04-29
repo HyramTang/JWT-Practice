@@ -26,7 +26,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-4 col-md-4">
-            <form method="post" action="login">
+            <form method="post">
                 <div class="form-group">
                     <label for="exampleInputUser">账号：</label>
                     <input type="text" class="form-control" name="UserName" id="exampleInputUser"
@@ -37,16 +37,42 @@
                     <input type="password" class="form-control" name="Password" id="exampleInputPassword1"
                         placeholder="Password" required>
                 </div>
-                <button type="submit" class="btn btn-success">登录</button>
-                {{#if error}}
+                <button type="button" class="btn btn-success">登录</button>
+                <ul style="padding-left:15px;display:none">
+                    <li style="color:red"></li>
+                </ul>
+
+
+                {{!-- {{#if error}}
                 <ul style="padding-left:15px;">
                     <li style="color:red">{{error}}</li>
                 </ul>
                 {{else}}
-                
-                {{/if}}
+
+                {{/if}} --}}
             </form>
         </div>
     </div>
 
 </div>
+
+<script>
+    $(function () {
+        $('.btn-success').on('click', function () {
+            $('ul').hide();
+            let userInfo = {
+                UserName: $('input[name=UserName]').val(),
+                Password: $('input[name=Password]').val()
+            };
+            $.post('/login', userInfo, function (data) {
+                if (data.state === 1) {
+                    $('ul').show();
+                    $('ul li').text(data.error);
+                } else {
+                    localStorage.setItem('JWTToken', data.JWTToken);
+                    window.location.href = '/page?token='+data.JWTToken;
+                }
+            })
+        });
+    })
+</script>

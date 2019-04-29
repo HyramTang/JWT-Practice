@@ -31,13 +31,11 @@ router.post('/login', function (req, res, next) {
     }, JWTKEY, {
       expiresIn: 300
     });
-    res.redirect('/page?token=' + JWTToken);
+    res.json({state:0,JWTToken:JWTToken});
+    //res.redirect('/page?token=' + JWTToken);
     // res.send('Hello' + JWTToken);
   } else {
-    res.render('login', {
-      title: '登录',
-      error: '账号密码错误！'
-    });
+    res.json({state:1,error:'账号密码错误！'});
   }
 });
 
