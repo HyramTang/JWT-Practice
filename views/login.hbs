@@ -37,10 +37,12 @@
                     <input type="password" class="form-control" name="Password" id="exampleInputPassword1"
                         placeholder="Password" required>
                 </div>
-                <button type="button" class="btn btn-success">登录</button>
+
                 <ul style="padding-left:15px;display:none">
                     <li style="color:red"></li>
                 </ul>
+                
+                <button type="button" class="btn btn-success">登录</button>
 
 
                 {{!-- {{#if error}}
@@ -70,7 +72,7 @@
                     $('ul li').text(data.error);
                 } else {
                     localStorage.setItem('JWTToken', data.JWTToken);
-                    window.location.href = '/page?token='+data.JWTToken;
+                    window.location.href = '/page';
                 }
             })
         });
